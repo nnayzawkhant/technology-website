@@ -4,6 +4,10 @@
     color: gray;
 }
 
+.hero_post_text{
+    color: #ccc;
+}
+
 .details__left h1{
     color: #fff;
 }
@@ -18,7 +22,7 @@
 
 .details__container{
     display: flex;
-    background-color: #262626;
+    background-color: #161616;
 }
 
 .details__left{
@@ -244,31 +248,16 @@
     align-items: center;
     animation: identifier 1s ease infinite alternate;
   }
-
-  @keyframes identifier {
-    from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-  }
-  
-  
-  @keyframes inProgress {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
   
   .undone {
     display: flex;
     flex-direction: column;
     align-items: center;
     opacity: 0.3;
+  }
+
+  .offer__feature button{
+    cursor: pointer;
   }
   
   .undone .checkedIcon,
@@ -280,4 +269,91 @@
     position: sticky;
     top: 0;
     bottom: 0;
+  }
+
+  .hero_post_text h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .hero_post_text h3  {
+    /* font-size: 18px; */
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .hero_post_text h4  {
+    /* font-size: 18px; */
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .hero_post_text h5  {
+    /* font-size: 18px; */
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .hero_post_text h6  {
+    /* font-size: 18px; */
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .hero_post_text p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #989797;
+  }
+  
+  .hero_post_text ul {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+  }
+  
+  .hero_post_text img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 900px) {
+    .details__right{
+        display: none;
+    }
+
+    .details__left{
+        width: 100%;
+    }
+
+    .details__left h1{
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .details__related h2{
+        font-size: 14px;
+    }
+    .relate__container{
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 3rem;
+    }
+
+    .details__btngroup button{
+        font-size: 10px;
+    }
+
+    .details__btngroup button{
+        display: none;
+    }
   }

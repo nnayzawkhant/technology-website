@@ -10,12 +10,14 @@ import { API_URL, API_URLS } from '../../components/config/url';
 import { useRouter } from 'next/router'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import Search from '../../components/Search';
 
 const Categories = () => {
     // console.log(allCats.results?.category)
     let router = useRouter();
     const [visiable, setVisiable] = useState(3);
     const [allCats, setAllCats] = useState([])
+    const [allPosts, setAllPosts] = useState([])
     const [page, setPage] = useState(1);
     let id = router?.query?.id
 
@@ -25,7 +27,13 @@ const Categories = () => {
         setPage(allResults.page);
     }
 
+    const fetchAllCats = async () => {
+        const allResults = await (await axios.get(API_URLS + '?limit=100')).data;
+        setAllPosts(allResults)
+    }
+
     useEffect(() => {
+        fetchAllCats()
         if (router.asPath !== router.route) {
             fetchCats(id)
           }
@@ -46,6 +54,7 @@ const Categories = () => {
 
   return (
     <div className={styles.categories__container}>
+        <Search post={allPosts}/>
         
         <div className={styles.firstlatest__container}>
         <div className={styles.page__btn}>

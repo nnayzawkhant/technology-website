@@ -15,7 +15,9 @@
 
 .single__swiper img{
     cursor: pointer;
-    height: 100px;
+    aspect-ratio: 16 / 10; 
+  object-fit: cover;
+    /* height: 200px; */
     width: 100%;
 }
 
@@ -36,3 +38,22 @@
     font-size: smaller;
     color: #828080;
 }
+
+.swiper-container {
+    width: 480px;
+  }
+
+
+  
+  @media screen and (max-width: 900px) {
+    .swiper-container {
+      width: 100%;
+    }
+
+    .single__swiper img{
+      cursor: pointer;
+      aspect-ratio: 16 / 10; 
+  object-fit: cover;
+      
+  }
+  }

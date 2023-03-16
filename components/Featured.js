@@ -75,12 +75,12 @@ const Featured = () => {
           headPosts?.results?.map((dat, i) => {
             return (
               <div  className={styles.blog_header_content} key={i}>
-                <Link href={`details/${dat.id}`}>
-                  <Image src={dat.photo} className={styles.image_ratio}  width="500" height="500" layout="responsive" objectFit="contain" alt=''/>
+                <Link href={`/details/${dat.id}`} passHref>
+                  <Image src={dat.photo} className={styles.image_ratio}  width={500} height={400} layout="responsive" alt=''/>
                 </Link>
                 <div className={styles.blog_content_overlay}>
-                    <Link href={`categories/${dat.category.id}`}><span>{dat.category.categoryname}</span></Link>
-                    <Link href={`details/${dat.id}`}><h3>{dat.title}</h3></Link>
+                    <Link href={`/categories/${dat.category.id}`} passHref><span>{dat.category.categoryname}</span></Link>
+                    <Link href={`/details/${dat.id}`} passHref><h3>{dat.title}</h3></Link>
                     <div className={styles.grid__papar}>
                       <p>{dat.user?.name}</p>
                       <div className={styles.doc__grid}></div>
@@ -97,7 +97,7 @@ const Featured = () => {
         <h1>POPULAR</h1>
       
       </div>
-      <div className={styles.popular__outline}></div>
+      {/* <div className={styles.popular__outline}></div> */}
     </div>
     <div>
     <div className={styles.flex__container}>
@@ -105,9 +105,11 @@ const Featured = () => {
             posts?.results?.map((item, i) => {
                 return (
                     <div className={styles.flex__card} key={i}>
-                        <Link href={`details/${item.id}`} className={styles.link_popular}><Image src={item.photo} width={1000} height={1000} alt=''/></Link>
-                        <p>0{i + 1}</p>
-                        <Link href={`details/${item.id}`}><p>{item.title}</p></Link>
+                        <Link href={`/details/${item.id}`} className={styles.link_popular}>
+                          <Image src={item.photo} className={styles.photo__img} width={1000} height={1000} alt=''/>
+                        <p className={styles.link__p}>0{i + 1}</p>
+                        <p>{item.title}</p>
+                        </Link>
                     </div>
                 )
             })
@@ -116,20 +118,20 @@ const Featured = () => {
     </div>
     <div className={styles.popular__wrapper}>
       <div className={styles.popular__nav}>
-        <h1>GADGETS</h1>
+        <h1>CATEGORIES</h1>
         <div className={styles.button__group}>
           {
-            categories?.results?.slice(7, 10).map((item, i) => {
+            categories?.results?.slice(2,4).map((item, i) => {
               return (
                 <div key={i}>
-                  <button onClick={() => gadgetChecked(item.id)}>{item.categoryname}</button>
+                  <button className={styles.btn__btn} onClick={() => gadgetChecked(item.id)}>{item.categoryname}</button>
                 </div>
               )
             })
           }
         </div>
       </div>
-      <div className={styles.popular__outline}></div>
+      {/* <div className={styles.popular__outline}></div> */}
     </div>
     <div>
       <NatureSwiper categoriesPosts={categoriesPosts}/>
@@ -149,7 +151,7 @@ const Featured = () => {
               })}
             </div>
           </div>
-          <div className={styles.popular__outline}></div>
+          {/* <div className={styles.popular__outline}></div> */}
         </div>
         <div>
           {

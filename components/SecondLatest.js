@@ -3,7 +3,7 @@ import styles from '../styles/Secondlatest.module.css';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import {format} from "timeago.js";
 import axios from 'axios';
-import { API_URL, API_URLS } from './config/url';
+import { API_URLS } from './config/url';
 import img from '../img/spinner.gif';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
@@ -56,13 +56,13 @@ const SecondLatest = () => {
                 allPosts.results?.slice(0, visiable).map((item, i) => {
                     return (
                         <div className={styles.secondlate__card} key={i}>
-                            <Link href={`details/${item.id}`} className={styles.secondlate__img} passHref><Image src={item.photo} width={1000} height={1000} alt=''/></Link>
+                            <Link href={`/details/${item.id}`} className={styles.secondlate__img} passHref><Image src={item.photo} width={1000} height={1000} alt=''/></Link>
                             <div className={styles.secondlate__late}>
                                 <div className={styles.span__doc}>
                                     <div className={styles.span__under}></div>
-                                    <Link href={`categories/${item.category.id}`} passHref><span className={styles.secondlate__span}>{item.category.categoryname}</span></Link>
+                                    <Link href={`/categories/${item.category.id}`} passHref><span className={styles.secondlate__span}>{item.category.categoryname}</span></Link>
                                 </div>
-                                <Link href={`details/${item.id}`} passHref><h2>{item.title}</h2></Link>
+                                <Link href={`/details/${item.id}`} passHref><h2>{item.title}</h2></Link>
                                 <div className={styles.secondlate__main}>
                                     <div className={styles.secondlate__little}>
                                         <Image src={item.user?.profilePic} width={40} height={40} alt=''/>

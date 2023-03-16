@@ -16,7 +16,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';
 import {format} from "timeago.js";
-import { API_URL, API_URLS } from './config/url';
+import { API_URLS } from './config/url';
 
 const LatestPosts = () => {
     SwiperCore.use([Autoplay])
@@ -28,7 +28,7 @@ const LatestPosts = () => {
 
     const fetchLatestPosts = async () => {
         const fetch = await (await axios.get(API_URLS + '?sortBy=_id:desc')).data;
-        console.log(fetch)
+        // console.log(fetch)
         setLatestPosts(fetch)
     }
   return (
@@ -40,7 +40,6 @@ const LatestPosts = () => {
             delay: 2000,
             disableOnInteraction: false
         }}
-        pagination={{ clickable: false }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
     >

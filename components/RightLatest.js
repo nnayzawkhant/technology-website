@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/RightLatest.module.css';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import PinterestIcon from '@mui/icons-material/Pinterest';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import EmailIcon from '@mui/icons-material/Email';
-import SendIcon from '@mui/icons-material/Send';
 import { mustReadDatas } from './mustReadDatas';
 
 const RightLatest = () => {
@@ -26,10 +23,10 @@ const RightLatest = () => {
           <PinterestIcon/>
 
         </div>
-        <div className={styles.righttwitter__btn}>
+        {/* <div className={styles.righttwitter__btn}>
           <TwitterIcon/>
 
-        </div>
+        </div> */}
         <div className={styles.rightIntag__btn}>
           <InstagramIcon/>
 

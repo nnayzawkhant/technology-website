@@ -1,7 +1,7 @@
 .rightlate__wrapper{
     display: flex;
     flex-direction: column;
-    background-color: #262626;
+    background-color: #161616;
     padding: 20px;
     gap: 4rem;
     position: sticky;
@@ -40,7 +40,6 @@
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
-    background-color: #22b4dc;
     color: #fff;
     border-radius: 1px;
 }
@@ -96,6 +95,11 @@
     justify-content: space-between;
     align-items: center;
     color: #fff;
+    
+}
+
+.right__must{
+    border-bottom: gray;
 }
 
 .must__title{
@@ -108,3 +112,9 @@
 .must__title li:hover{
     color: #d7d2d2;
 }
+
+@media screen and (max-width: 900px) {
+    .rightlate__wrapper{
+        display: none;
+    }
+  }

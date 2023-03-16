@@ -8,6 +8,7 @@
     background-color: #1c1c1c;
     opacity: 0.9;
     color: #fff;
+    position: relative;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -29,19 +30,7 @@
     align-items: center;
 }
 
-.sport__span{
-    background-color: #3472d8;
-    padding: 2px;
-    border-radius: 3px;
-    margin-top: -20px;
-    margin-left: 4px;
-}
 
-.second__grid{
-    position: absolute;
-    left: 5%;
-    z-index: 999;
-}
 
 .container{
     display: flex;
@@ -270,3 +259,56 @@
     font-size: 12px;
     font-weight: 600;
   }
+
+  
+.header_right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search_input{
+  padding: 8px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #ddd;
+}
+.date{
+  display: flex;
+  align-items: center;
+}
+.month-year{
+  display: flex;
+  gap: 1rem;
+}
+.day{
+ 
+}
+
+
+@media only screen and (max-width: 760px) {
+  .search{
+    display: none;
+  }
+  .date{
+    display: none;
+  }
+  .second__wrapper{
+    display: flex;
+    /* flex-wrap: wrap; */
+  }
+
+  .second__wrapper h1{
+    font-size: 20px;
+  }
+}

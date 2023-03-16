@@ -28,7 +28,7 @@ const PopularMust = () => {
 
     const fetchPopularPosts = async () => {
         const fetch = await (await axios.get(API_URLS + '?sortBy=viewCounts:desc')).data;
-        console.log(fetch)
+        // console.log(fetch)
         setPopularPosts(fetch)
     }
     return (
@@ -40,7 +40,7 @@ const PopularMust = () => {
                 delay: 2000,
                 disableOnInteraction: false
             }}
-            pagination={{ clickable: false }}
+            
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log('slide change')}
         >

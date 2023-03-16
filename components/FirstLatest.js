@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/FirstLatest.module.css';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import {format} from "timeago.js";
 import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';
-import { API_URL, API_URLS } from './config/url';
+import { API_URLS } from './config/url';
 import img from '../img/spinner.gif';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
 
 const FirstLatest = () => {
-    const [visiable, setVisiable] = useState(3);
+    const [visiable, setVisiable] = useState(3);  
 
     const [allPosts, setAllPosts] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -62,15 +61,15 @@ const FirstLatest = () => {
             allPosts?.results?.map((item, i) => {
                 return (
                     <div className={styles.firstlatest__card} key={i}>
-                        <Link href={`details/${item.id}`} className={styles.first__img} passHref><Image src={item.photo} width={1000} height={1000} alt=''/></Link>
+                        <Link href={`/details/${item.id}`} className={styles.first__img} passHref><Image className={styles.firstimg} src={item.photo} width={1000} height={1000} alt=''/></Link>
                         <div className={styles.first__late}>
                             <div className={styles.span__doc}>
                                 <div className={styles.span__under}></div>
-                                <Link href={`categories/${item.category?.id}`} passHref>
+                                <Link href={`/categories/${item.category?.id}`} passHref>
                                     <span className={styles.first__span}>{item.category.categoryname}</span>
                                 </Link>
                             </div>
-                            <Link href={`details/${item.id}`} passHref><h2>{item.title}</h2></Link>
+                            <Link href={`/details/${item.id}`} passHref><h2>{item.title}</h2></Link>
                             <div className={styles.first__main}>
                                 <div className={styles.first__little}>
                                     <Image src={item.user?.profilePic} width={30} height={30} alt=''/>
@@ -82,7 +81,7 @@ const FirstLatest = () => {
                                 </div>
                             </div>
                             <div>
-                                <p dangerouslySetInnerHTML={{ __html: item.desc.slice(0, 150)}} />
+                                <p>{item.summary}...</p>
                             </div>
                         </div>
                     </div>

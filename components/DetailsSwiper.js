@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/DetailsSwiper.module.css';
 
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Pagination, A11y } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';

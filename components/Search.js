@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import React, { useContext } from 'react'
-import { LayoutContext } from './Layout'
+import { LayoutContext } from './Layout/Layout';
+import Image from 'next/image';
+import '../styles/Search.module.css'
+
 
 const Search = ({post}) => {
   let { search } = useContext(LayoutContext)
@@ -11,17 +14,17 @@ const Search = ({post}) => {
             {
                 post?.results?.filter((data) => {
                     if(search === '') {
-                        return 
+                        return data
                     } else if (data?.title.toLowerCase().includes(search.toLowerCase())) {
                         return data
                     }
                 }).map((data, i) => (
                     <div className="search-item" key={i}>
                         <div className="search-image">
-                            <img src={data.image} alt=""/>
+                            <Link href={`/details/${data.id}`}><Image src={data.photo} width={100} height={100}  alt=""/></Link>
                         </div>
                         <div className="search-text">
-                            <Link href={`/posts/${data.id}`} className='link'>{data.title}</Link>
+                            <Link href={`/details/${data.id}`} className='link'>{data.title}</Link>
                         </div>
                     </div>
                 ))
