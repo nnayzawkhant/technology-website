@@ -29,11 +29,11 @@ const Featured = () => {
   }
 
   const loadCategoriesPosts = async () => {
-    let API_URLSS = 'http://localhost:5000/v1/posts/public/latest_posts/'
+    let queryURL = API_URLS 
     if(query){
-      API_URLSS += `?category=${query}`
+      queryURL += `?category=${query}`
     }
-    const result = await (await axios.get(API_URLSS)).data;
+    const result = await (await axios.get(queryURL)).data;
     // console.log(result, 'hello')
     setCategoriesPosts(result)
   }

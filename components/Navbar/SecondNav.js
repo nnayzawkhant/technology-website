@@ -9,13 +9,6 @@ import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 
 const SecondNav = ({setSearch}) => {
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-  let dateObj = new Date();
-  let month = monthNames[dateObj.getUTCMonth()]; 
-  let day = dateObj.getUTCDate()
-  let year = dateObj.getUTCFullYear();
   
   const [allCats, setAllCats] = useState([])
 
@@ -75,11 +68,6 @@ const SecondNav = ({setSearch}) => {
             <div className={styles.search}>
               <input type="search" placeholder='Search...' onChange={e => setSearch(e.target.value)} className={styles.search_input}/>
               <SearchIcon className={styles.searcn_icon}/>
-            </div>
-            <div className={styles.date}>
-              <CalendarMonthIcon fontSize='smaller'/>
-              <div className={styles.day}><p>{day}/{month}/{year}</p></div>
-              
             </div>
           </div>
           

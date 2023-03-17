@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import styles from '../../styles/Details.module.css'
 import HomeIcon from '@mui/icons-material/Home';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -10,11 +10,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { API_URL, API_URLS } from '../../components/config/url';
 import Search from '../../components/Search';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router'
+
+
 const Details = ({posts, relatedPosts, allposts}) => {
+  // let router = useRouter();
+
   return (
     <div className={styles.details__wrapper} >
       <Search post={allposts}/>
-        {/* <DetailsSwiper cat={cat}/> */}
         <div className={styles.details__container}>
           <div className={styles.details__left}>
             <div className={styles.home__wrap}>
@@ -44,12 +49,6 @@ const Details = ({posts, relatedPosts, allposts}) => {
               <a href={`/categories/${posts?.category?.id}`}><button>{posts?.category?.categoryname}</button></a>
               <p>{posts.viewCounts} views</p>
             </div>
-            {/* <div className={styles.history__group}>
-              <span>NEXT STORY <KeyboardArrowRightIcon/></span>
-              <div className={styles.isProgress}>
-                <Link href='#' >{posts.title}</Link>
-              </div>
-            </div> */}
             <div className={styles.detailleft__profile}>
               <Image src={posts.user.profilePic} width={40} height={40} alt=''/>
               <div className={styles.detailleft__dev}>
@@ -76,10 +75,6 @@ const Details = ({posts, relatedPosts, allposts}) => {
               </div>
             </div>
             <div>
-              {/* <div className={styles.comment__header}>
-                <p>0 Comments</p>
-                <button>Login</button>
-              </div> */}
               <div>
               </div>
             </div>
@@ -94,7 +89,7 @@ const Details = ({posts, relatedPosts, allposts}) => {
   )
 };
 
-export const getServerSideProps = async ({params}) => {
+export let getServerSideProps = async ({params}) => {
   const finalRes = await (await axios.get(API_URL + `${params.id}`)).data;
 
   const relate = await (await axios.get(API_URLS + `?sortBy=_id:desc&limit=3&category=${finalRes.category.id}`)).data;
@@ -107,22 +102,11 @@ export const getServerSideProps = async ({params}) => {
   return {
       props: {
           posts: finalRes,
-          // cat : cats.results,
           relatedPosts: relate.results,
           allposts: posts
       },
   }
 };
-
-// export const getSecondServerSideProps = async () => {
-  
-
-//   return {
-//       props: {
-//           cats: res,
-//       },
-//   }
-// };
 
 export default Details;
 
