@@ -44,12 +44,12 @@ const Details = ({posts, relatedPosts, allposts}) => {
               <a href={`/categories/${posts?.category?.id}`}><button>{posts?.category?.categoryname}</button></a>
               <p>{posts.viewCounts} views</p>
             </div>
-            <div className={styles.history__group}>
+            {/* <div className={styles.history__group}>
               <span>NEXT STORY <KeyboardArrowRightIcon/></span>
               <div className={styles.isProgress}>
                 <Link href='#' >{posts.title}</Link>
               </div>
-            </div>
+            </div> */}
             <div className={styles.detailleft__profile}>
               <Image src={posts.user.profilePic} width={40} height={40} alt=''/>
               <div className={styles.detailleft__dev}>
