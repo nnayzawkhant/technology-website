@@ -39,7 +39,7 @@ const SecondNav = ({setSearch}) => {
   return (
     <>
     <div className={styles.second__wrapper}>
-      <div><h1>ANYAR News</h1></div>
+      <div><h1>Rumor News</h1></div>
       <nav className='nav__cls'>
         <ul>
           <li className="nav__item">
